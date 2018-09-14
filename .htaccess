@@ -1,0 +1,26 @@
+Options All -Indexes +ExecCGI +Includes +FollowSymLinks
+
+AddDefaultCharset UTF-8
+
+DirectoryIndex  index.php
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+    
+  RewriteCond %{REQUEST_URI} !\?
+  RewriteCond %{REQUEST_URI} !\&
+  RewriteCond %{REQUEST_URI} !\=
+  RewriteCond %{REQUEST_URI} !\.
+  RewriteCond %{REQUEST_URI} !\/$
+  RewriteRule ^(.*[^\/])$ /$1/ [R=301,L]
+  
+  RewriteRule ^(.*)/index\.php(.*) http://%{HTTP_HOST}/$1$2 [R=301,L]
+  RewriteRule ^(.*)/index\.html(.*) http://%{HTTP_HOST}/$1$2 [R=301,L]
+  RewriteRule ^(.*)index\.(html|php)$ http://%{HTTP_HOST}/$1 [R=301,L]
+  
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.*)$ index.php/$1 [L]
+  
+</IfModule>

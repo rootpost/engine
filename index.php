@@ -18,6 +18,7 @@ $project->setConfigs($config);
 
 $project->loadHelpers();
 $project->loadLibraries();
+$project->loadControllers();
 
 //echo HttpHelper::f();
 

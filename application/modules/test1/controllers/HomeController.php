@@ -1,7 +1,7 @@
 <?php
 
 
-namespace project\controllers;
+namespace project\test1\controllers;
 
 use project\controllers\MainController;
 
@@ -19,11 +19,6 @@ class HomeController extends MainController
 		echo "Hello World";
 	}
 	
-	public function article()
-	{
-		echo "ARTICLE";
-	}
-	
 	public function about()
 	{
 		echo "ABOUT";
@@ -31,7 +26,8 @@ class HomeController extends MainController
 	
 	public function f($a, $b)
 	{
-		echo $a."<br />";
+		echo 'Is module test1<br />';
+    echo $a."<br />";
 		echo $b."<br />";
 	}
 }

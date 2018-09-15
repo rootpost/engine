@@ -52,8 +52,8 @@ class Route
           {
             $run = preg_replace('#^'.$uri.'$#', $run, $segmentsStr);
           }
-          //echo $run;exit();
-          return $this->loadController($run);
+          
+          return $this->loadController($run, $this->_config[$i]['module']);
         }
       }
     }
@@ -61,10 +61,49 @@ class Route
     return false;
   }
 
-  public function loadController($controllerData)
+  public function loadController($controllerData, $isModule)
   {
-    echo '<h1>'.$controllerData.'</h1>'; exit();
+    $data = explode('/', $controllerData);
+      
+    $pathController = '';
+    $titleController = '';
+    $titleMethod = '';
+    if($isModule)
+    {
+      $pathController = 'application/modules/'.$data[0].'/controllers/'.$data[1].'.php';
+      $titleController = '\\project\\'.$data[0].'\\controllers\\'.$data[1];
+      $titleMethod = $data[2];
+      
+      unset($data[0]);
+      unset($data[1]);
+      unset($data[2]);
+    }
+    else
+    {
+      
+      $pathController = 'application/controllers/'.$data[0].'.php';
+      $titleController = '\\project\\controllers\\'.$data[0];
+      $titleMethod = $data[1];
+      
+      unset($data[0]);
+      unset($data[1]);
+    }
+    
+    $params = array_values($data);
+    
+    if(file_exists($pathController))
+    {
+      require_once($pathController);
+    }
+    if(class_exists($titleController) && method_exists($titleController, $titleMethod))
+    {
+      $customController = new $titleController();
+      call_user_func_array(array($customController, $titleMethod), $params);
+      return true;
+    }
+    
     return false;
+    
   }
 }
 

@@ -51,6 +51,7 @@ class Project
   public function loadControllers()
   {
     require_once('core/controllers/Controller.php');
+    //echo 22;exit();
     for($i=0; $i<count($this->_config['load']['controllers']); $i++)
     {
       $pathControllersApp = 'application/controllers/'.$this->_config['load']['controllers'][$i].'.php';
@@ -61,6 +62,9 @@ class Project
       }
     }
   }
+
+
+
 
 
 }

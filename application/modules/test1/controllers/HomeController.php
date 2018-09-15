@@ -14,21 +14,20 @@ class HomeController extends MainController
 		parent::__construct();
 	}
 	
-	public function index()
+	public function titleModule()
 	{
-		echo "Hello World";
-	}
-	
-	public function about()
-	{
-		echo "ABOUT";
-	}
+        return 'test1';
+    }
 	
 	public function f($a, $b)
 	{
-		echo 'Is module test1<br />';
-    echo $a."<br />";
-		echo $b."<br />";
+		$this->loadModel('User', 'user');
+        $user = $this->user->get();
+        
+        $this->data('user', $user);
+        $this->data('a', $a);
+        $this->data('b', $b);
+        $this->display('f');
 	}
 }
 

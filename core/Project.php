@@ -35,18 +35,7 @@ class Project
     }
   }
 /*============================================================*/
-  public function loadLibraries()
-  {
-    for($i=0; $i<count($this->_config['load']['libraries']); $i++)
-    {
-      $pathLibrariesApp = 'application/libraries/'.$this->_config['load']['libraries'][$i].'.php';
-    
-      if(file_exists($pathLibrariesApp))
-      {
-        require_once($pathLibrariesApp);
-      }
-    }
-  }
+
 /*============================================================*/
   public function loadControllers()
   {

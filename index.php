@@ -12,12 +12,13 @@ define('PROJECT_ACCESS', 'true');
 require_once('application/configs/configs.php');
 require_once('core/Project.php');
 require_once('core/routes/Route.php');
+require_once('core/models/Model.php');
 
 $project = new Project();
 $project->setConfigs($config);
 
 $project->loadHelpers();
-$project->loadLibraries();
+//$project->loadModels();
 $project->loadControllers();
 
 //echo HttpHelper::f();

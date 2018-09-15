@@ -1,6 +1,7 @@
 <?php
 $config = array();
 
+$config['db']['is_used'] = true;
 $config['db']['host'] = 'localhost';
 $config['db']['port'] = '3306';
 $config['db']['username'] = 'root';
@@ -9,7 +10,8 @@ $config['db']['charset'] = 'utf8';
 
 $config['load']['controllers'] = array('MainController');
 $config['load']['helpers'] = array('HttpHelper');
-$config['load']['libraries'] = array('HttpLibrary');
+//$config['load']['models'] = array('model');
+//$config['load']['libraries'] = array('HttpLibrary');
 
 $config['route'][] = array(
 	'uri' => '/',
@@ -51,7 +53,7 @@ $config['route'][] = array(
 			'rule' => '[0-9]{2}',
 		),
 	),
-); //'run'->'имя_модуля/имя_контроллера/имя_метода/пар1/пар2/пар3'
+); //'run'->'РёРјСЏ_РјРѕРґСѓР»СЏ/РёРјСЏ_РєРѕРЅС‚СЂРѕР»Р»РµСЂР°/РёРјСЏ_РјРµС‚РѕРґР°/РїР°СЂ1/РїР°СЂ2/РїР°СЂ3'
 
 /*
 project/aaaa/23/bbbb/11/qwer

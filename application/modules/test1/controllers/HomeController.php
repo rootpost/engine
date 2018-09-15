@@ -21,7 +21,6 @@ class HomeController extends MainController
 	
 	public function f($a, $b)
 	{
-		$this->loadModel('User', 'user');
         $user = $this->user->get();
         
         $this->data('user', $user);

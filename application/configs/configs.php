@@ -1,7 +1,7 @@
 <?php
 $config = array();
 
-$config['db']['is_used'] = true;
+$config['db']['is_used'] = false;
 $config['db']['host'] = 'localhost';
 $config['db']['port'] = '3306';
 $config['db']['username'] = 'root';

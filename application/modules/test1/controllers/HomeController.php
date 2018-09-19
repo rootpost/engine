@@ -17,7 +17,7 @@ class HomeController extends MainController
 	public function titleModule()
 	{
         return 'test1';
-    }
+  }
 	
 	public function f($a, $b)
 	{

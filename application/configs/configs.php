@@ -1,12 +1,14 @@
 <?php
 $config = array();
 
-$config['db']['is_used'] = false;
+$config['db']['is_used'] = true;
 $config['db']['host'] = 'localhost';
-$config['db']['port'] = '3306';
-$config['db']['username'] = 'root';
-$config['db']['password'] = '';
+$config['db']['port'] = '5432';
+$config['db']['username'] = 'power';
+$config['db']['password'] = '123';
+$config['db']['database'] = 'power';
 $config['db']['charset'] = 'utf8';
+$config['db']['type'] = 'pgsql';
 
 $config['load']['controllers'] = array('MainController');
 $config['load']['helpers'] = array('HttpHelper');
@@ -55,11 +57,4 @@ $config['route'][] = array(
 	),
 ); //'run'->'имя_модуля/имя_контроллера/имя_метода/пар1/пар2/пар3'
 
-/*
-project/aaaa/23/bbbb/11/qwer
-(new HomeController()).f('23', '11');
-
-project/aaaa/234234/bbbb/77/qwer
-(new HomeController()).f('234234', '77');
-*/
 ?>

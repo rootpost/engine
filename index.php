@@ -1,12 +1,12 @@
 <?php
-//ini_set('display_errors',1);
 
+//error_reporting(E_ALL);
 namespace project\index;
 
 use project\core\Project;
 use project\routes\Route;
 use project\helpers\HttpHelper;
-
+ini_set('display_errors', 'On');
 define('PROJECT_ACCESS', 'true');
 
 require_once('application/configs/configs.php');
@@ -21,6 +21,14 @@ $project->loadHelpers();
 //$project->loadModels();
 $project->loadControllers();
 
+if($config['db']['is_used'])
+{
+  
+  require_once('core/databases/ActiveRecord.php');
+  require_once('core/databases/Database.php');
+  $project->loadDb();
+}
+
 //echo HttpHelper::f();
 
 $route = new Route();
@@ -31,6 +39,5 @@ if(!$route->load())
   exit();
 
 echo '<pre>';print_r($config);exit();
-
 
 ?>

@@ -1,5 +1,6 @@
 Options All -Indexes +ExecCGI +Includes +FollowSymLinks
-
+#php_flag display_errors 1
+#php_value error_reporting 30719
 AddDefaultCharset UTF-8
 
 DirectoryIndex  index.php
